@@ -5,6 +5,8 @@ Welcome to your dbt snowflake project!
 Try running the following commands:
 - dbt run
 - dbt test
+- dbt docs generate
+- dbt docs server --port 8001
 
 
 ### Resources:

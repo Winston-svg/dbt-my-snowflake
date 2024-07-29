@@ -6,7 +6,7 @@ Try running the following commands:
 - dbt run
 - dbt test
 - dbt docs generate
-- dbt docs server --port 8001
+- dbt docs server --port 8002
 
 
 ### Resources:

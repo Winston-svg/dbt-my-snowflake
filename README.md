@@ -1,4 +1,4 @@
-Welcome to your dbt project!
+Welcome to your dbt snowflake project!
 
 ### Using the starter project
 

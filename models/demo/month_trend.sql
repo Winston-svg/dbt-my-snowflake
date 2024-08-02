@@ -1,4 +1,4 @@
-/* 测试月份趋势表 */
+/* 测试月份-趋势表 */
 
 {{ config(materialized='table') }}
 

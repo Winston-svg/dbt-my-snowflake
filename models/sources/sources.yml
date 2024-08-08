@@ -1,12 +1,20 @@
 version: 2
 
 sources:
-    - name: test
-      description: This is a replica of the Postgres database used by our app
-      database: "{{ var('environments')[env_var('DBT_ENV_ENVIRONMENTS')]['database'] }}"
-      schema: "{{ var('environments')[env_var('DBT_ENV_ENVIRONMENTS')]['schema'] }}"
-      tables:
-          - name: customers
-            description: One record per customer.
-          - name: orders
-            description: One record per order. Includes cancelled and deleted orders.
+  - name: test
+    description: This is a replica of the snowflake database used by our app
+    database: "{{ var('environments')[env_var('DBT_ENV_ENVIRONMENTS')]['database'] }}"
+    schema: "{{ var('environments')[env_var('DBT_ENV_ENVIRONMENTS')]['schema'] }}"
+    tables:
+      - name: customers
+        description: One record per customer.
+        identifier: "{{ var('environments')[env_var('DBT_ENV_ENVIRONMENTS')]['tables']['customers'] }}"
+        freshness:
+          warn_after: {count: 24, period: hour}  # 如果数据超过24小时未更新，发出警告
+          error_after: {count: 48, period: hour} # 如果数据超过48小时未更新，发出错误
+      - name: orders
+        description: One record per order. Includes cancelled and deleted orders.
+        identifier: "{{ var('environments')[env_var('DBT_ENV_ENVIRONMENTS')]['tables']['orders'] }}"
+        freshness:
+          warn_after: {count: 12, period: hour}  # 如果数据超过12小时未更新，发出警告
+          error_after: {count: 24, period: hour} # 如果数据超过24小时未更新，发出错误

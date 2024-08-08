@@ -1,4 +1,5 @@
 {% set env = env_var('DBT_ENV_ENVIRONMENTS') %}
+{% do log('The current environment is: ' ~ env, info=True) %}
 {% set db = var('environments')[env]['database'] %}
 {% set schema = var('environments')[env]['schema'] %}
 {% set customers_table = var('environments')[env]['tables']['customers'] %}

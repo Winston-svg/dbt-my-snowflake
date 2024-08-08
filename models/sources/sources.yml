@@ -1,10 +1,8 @@
 version: 2
 
 sources:
-    - name: jaffle_shop
+    - name: test
       description: This is a replica of the Postgres database used by our app
-      database: raw_dbt
-      schema: jaffle_shop
       tables:
           - name: customers
             description: One record per customer.

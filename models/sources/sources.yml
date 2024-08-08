@@ -3,6 +3,8 @@ version: 2
 sources:
     - name: test
       description: This is a replica of the Postgres database used by our app
+      database: "{{ var('environments')[env_var('DBT_ENV_ENVIRONMENTS')]['database'] }}"
+      schema: "{{ var('environments')[env_var('DBT_ENV_ENVIRONMENTS')]['schema'] }}"
       tables:
           - name: customers
             description: One record per customer.

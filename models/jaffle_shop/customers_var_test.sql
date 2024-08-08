@@ -1,4 +1,4 @@
-{% set env = var('environment', 'dev') %}
+{% set env = env_var('DBT_ENV_ENVIRONMENTS') %}
 {% set db = var('environments')[env]['database'] %}
 {% set schema = var('environments')[env]['schema'] %}
 {% set customers_table = var('environments')[env]['tables']['customers'] %}

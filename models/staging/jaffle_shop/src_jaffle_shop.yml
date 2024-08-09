@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+ - name: jaffle_shop
+   database: "{{ var('environments')[env_var('DBT_ENV_ENVIRONMENTS')]['database'] }}"
+   schema: "{{ var('environments')[env_var('DBT_ENV_ENVIRONMENTS')]['schema'] }}"
+   tables:
+     - name: customers
+     - name: orders

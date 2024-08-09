@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_month_trend
+    description: "Aggregates monthly temperature and user metrics"
+    columns:
+      - name: mnth
+        description: "Month of the year"
+      - name: min_temp
+        description: "Minimum temperature for the month, adjusted by formula"
+      - name: max_temp
+        description: "Maximum temperature for the month, adjusted by formula"
+      - name: mean_temp
+        description: "Average temperature for the month, adjusted by formula"
+      - name: total_casual
+        description: "Total number of casual users for the month"
+      - name: total_registered
+        description: "Total number of registered users for the month"
+      - name: total_cnt
+        description: "Total number of counts for the month"
+    meta:
+      materialization: table  # 可以设置为 "table", "view" 或其他物化类型
+    tags: ['aggregation', 'monthly']

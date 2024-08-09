@@ -1,5 +1,3 @@
-/* 测试月份-趋势表 */
-
 {{ config(materialized='table') }}
 
 with month_trend as (

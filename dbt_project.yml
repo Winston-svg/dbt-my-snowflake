@@ -40,3 +40,19 @@ models:
       +materialized: table
     jaffle_shop:
       +materialized: table
+
+
+vars:
+  environments:
+    dev:
+      database: 'raw_dbt'
+      schema: 'jaffle_shop'
+      tables:
+        customers: 'customers'
+        orders: 'orders'
+    prod:
+      database: 'analytics'
+      schema: 'public'
+      tables:
+        customers: 'customers'
+        orders: 'orders'

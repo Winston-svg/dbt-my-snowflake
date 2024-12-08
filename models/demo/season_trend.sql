@@ -1,4 +1,4 @@
-/* 季节趋势表 */
+/* 12季节趋势表 */
 
 {{ config(materialized='table') }}
 
